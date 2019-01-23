@@ -1,0 +1,28 @@
+<h1>Participants</h1>
+
+<table class="table table-dark">
+  <tr>
+    <th>Participant ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let p of participants;let i = index">
+    <td>{{p.participantId}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.department}}</td>
+    <td><button type="button" class="btn btn-danger" (click)="deleteParticipant(p.participantId)">X</button></td>
+  </tr>
+  </table>
+  
+  <br>
+
+  <form (submit)="addNewParticipant({participantId:0,name:pname.value,department:pdept.value})">
+    <table>
+    <tr>
+      <td><input placeholder="Name" #pname></td>
+      <td><input placeholder="Department" #pdept></td>
+      <td><input type="submit" value="Add"></td>
+    </tr>
+  </table>
+  </form>

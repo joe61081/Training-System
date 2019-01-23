@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #353C42;
+}
+
+input{
+    background-color: #5C6872;
+    text-align: center;
+    color: black;
+    border: 1px solid #454E56;
+}
+
+input::placeholder{
+    color: black;
+}
+
+td, h1, h2{
+    color:white;
+}
+
+table{
+    margin: auto;
+}
+
+form{
+    padding-bottom: 30px;
+}
+

@@ -1,0 +1,56 @@
+<h1>Trainings</h1>
+
+<table class="table table-dark">
+  <tr>
+    <th>Training ID</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Date</th>
+    <th>Delete</th>
+    <th>View Participants</th>
+  </tr>
+  <tr *ngFor="let tr of trainings;let i = index">
+    <td>{{tr.trainingId}}</td>
+    <td>{{tr.title}}</td>
+    <td>{{tr.location}}</td>
+    <td>{{tr.date}}</td>
+    <td><button type="button" class="btn btn-danger" (click)="deleteTraining(tr.trainingId)">X</button></td>
+    <td><button type="button" class="btn btn-info" (click)="getTrainingParticipants(tr.trainingId)">V</button></td>
+  </tr>
+  </table>
+
+  <table *ngIf="isEditable" class="table table-dark">
+      <tr>
+          <th>Participant ID</th>
+          <th>Name</th>
+          <th>Department</th>
+        </tr>
+      <tr *ngFor="let ps of participants;let i = index">
+          <td>{{ps.participantId}}</td>
+          <td>{{ps.name}}</td>
+          <td>{{ps.department}}</td>
+        </tr>
+  </table>
+
+  <form (submit)="addNewTraining({trainingId:0,title:ptitle.value,location:plocation.value,date:pdate.value})">
+  <table>
+    <tr>
+      <td><input placeholder="Title" #ptitle></td>
+      <td><input placeholder="Location" #plocation></td>
+      <td><input placeholder="Date" #pdate></td>
+      <td><input type="submit" value="Add"></td>
+    </tr>
+  </table>
+  </form>
+
+  <h2>Add Association</h2>
+  <form (submit)="addNewParticipantToTraining({trainingId:tid.value,participantId:pid.value})">
+    <table>
+    <tr>
+        <td><input placeholder="Training Id"#tid></td> 
+        <td><input placeholder="Particpant Id"#pid></td>
+
+        <td><input class="btn btn-default" type="submit" value="Add"></td> 
+      </tr>
+    </table>
+    </form>
